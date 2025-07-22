@@ -1,4 +1,3 @@
-
 using BookStore.Application.Services;
 using BookStore.Core.Abstractions;
 using BookStore.Data;
@@ -37,14 +36,14 @@ namespace BookStore.API
 
             app.UseAuthorization();
 
-            app.MapControllers();
-
             app.UseCors(x =>
             {
                 x.WithHeaders().AllowAnyHeader();
                 x.WithOrigins("http://localhost:3000");
                 x.WithMethods().AllowAnyMethod();
             });
+
+            app.MapControllers();
 
             app.Run();
         }
